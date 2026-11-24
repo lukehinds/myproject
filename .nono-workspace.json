@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "packages": [
+    "uv",
+    "ruff",
+    "gh",
+    "curl",
+    "wget",
+    "fd",
+    "jq",
+    "bat",
+    "eza",
+    "fzf",
+    "tree",
+    "htop",
+    "tmux",
+    "shfmt",
+    "just",
+    "cowsay",
+    "figlet",
+    "lolcat",
+    "hello"
+  ]
+}
