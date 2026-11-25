@@ -221,3 +221,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ToDo app local database
+todos.db
+todos.db-journal
+todos.db-wal
+todos.db-shm

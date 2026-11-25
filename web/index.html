@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>ToDo App</h1>
+      <div class="header-actions">
+        <span id="todo-count" class="todo-count" aria-live="polite">0 items left</span>
+        <button id="clear-completed" type="button" disabled>Clear Completed</button>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="add-todo-heading">
+        <h2 id="add-todo-heading">Add a ToDo</h2>
+        <form id="todo-form">
+          <div class="form-group">
+            <label for="title">Title *</label>
+            <input type="text" id="title" name="title" required maxlength="200" placeholder="What needs to be done?">
+          </div>
+          
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" maxlength="2000" placeholder="Additional details"></textarea>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="priority">Priority</label>
+              <select id="priority" name="priority">
+                <option value="low">Low</option>
+                <option value="normal" selected>Normal</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="due_date">Due Date</label>
+              <input type="date" id="due_date" name="due_date">
+            </div>
+          </div>
+          
+          <button type="submit">Add ToDo</button>
+        </form>
+      </section>
+
+      <section aria-labelledby="todo-list-heading">
+        <div class="list-header">
+          <h2 id="todo-list-heading">Your ToDos</h2>
+          <div class="filters" role="group" aria-label="Filter ToDos">
+            <button type="button" class="filter-btn active" data-filter="all">All</button>
+            <button type="button" class="filter-btn" data-filter="active">Active</button>
+            <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+          </div>
+        </div>
+        <div id="error-message" class="error" aria-live="assertive" hidden></div>
+        <ul id="todo-list" class="todo-list" aria-label="List of ToDos">
+          <!-- ToDos will be dynamically inserted here -->
+        </ul>
+        <div id="loading" hidden aria-hidden="true">Loading...</div>
+        <div id="empty-state" hidden>No ToDos yet.</div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="edit-modal" aria-labelledby="edit-todo-heading">
+    <div class="dialog-content">
+      <h2 id="edit-todo-heading">Edit ToDo</h2>
+      <form id="edit-form">
+        <input type="hidden" id="edit-id" name="id">
+        <div class="form-group">
+          <label for="edit-title">Title *</label>
+          <input type="text" id="edit-title" name="title" required maxlength="200">
+        </div>
+        
+        <div class="form-group">
+          <label for="edit-notes">Notes</label>
+          <textarea id="edit-notes" name="notes" maxlength="2000"></textarea>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edit-priority">Priority</label>
+            <select id="edit-priority" name="priority">
+              <option value="low">Low</option>
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="edit-due_date">Due Date</label>
+            <input type="date" id="edit-due_date" name="due_date">
+          </div>
+        </div>
+        
+        <div class="dialog-actions">
+          <button type="button" id="cancel-edit">Cancel</button>
+          <button type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <div id="announcer" class="sr-only" aria-live="polite"></div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
