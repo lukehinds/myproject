@@ -19,6 +19,9 @@
     "cowsay",
     "figlet",
     "lolcat",
-    "hello"
+    "hello",
+    "nodejs_22",
+    "pnpm",
+    "python312"
   ]
 }
